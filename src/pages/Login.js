@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { history as historyPropTypes } from 'history-prop-types';
 import PropTypes from 'prop-types';
 import { addEmail } from '../actions';
 import '../styles/login.css';
@@ -79,7 +78,7 @@ function Login({ dispatch, history }) {
 
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  history: PropTypes.shape(historyPropTypes).isRequired,
+  history: PropTypes.objectOf.isRequired,
 };
 
 export default connect(null, null)(Login);
