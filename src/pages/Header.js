@@ -23,10 +23,16 @@ function Header({ email, expenses }) {
   return (
     <div>
       <header className="headerWallet">
-        <h1 className="titleWallet">WALLET</h1>
-        <h3 data-testid="email-field">{`Email: ${email}`}</h3>
-        <h3 data-testid="total-field">{ sumValues() }</h3>
-        <h3 data-testid="header-currency-field">BRL</h3>
+        <h1 className="titleWallet">
+          WALLET
+          <i className="fa-solid fa-money-check-dollar" />
+        </h1>
+        <h5 data-testid="email-field">
+          <i className="fa-solid fa-user-check" />
+          {` ${email}`}
+        </h5>
+        <h5 data-testid="total-field">{ sumValues() }</h5>
+        <h5 data-testid="header-currency-field">BRL</h5>
       </header>
     </div>
   );

@@ -1,11 +1,58 @@
-.tableExpenses {
+th , td {
   color: white;
+  text-align: center;
+  width: 200px;
+}
+
+table {
   display: flex;
-  margin-top: 30px;
-  padding: 10px;
-  position: absolute;
+  flex-direction: column;
+}
+
+td {
+  background-color: rgb(105, 102, 102);
+  height: 70px;
 }
 
 th {
-  padding: 30px;
+  background-color: rgb(54, 54, 54);
+  font-size: 15px;
+  font-weight: 800;
+  height: 50px;
+  text-transform: uppercase;
+}
+
+.tableExpenses {
+  margin-top: 50px;
+}
+
+.titleExpense {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.buttonEdit {
+  background-color: dodgerblue;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.buttonDel {
+  background-color: red;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.buttonDel:hover {
+  background-color: rgb(232, 107, 107);
+}
+
+.buttonEdit:hover {
+  background-color: deepskyblue;
 }

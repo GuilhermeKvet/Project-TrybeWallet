@@ -5,6 +5,7 @@ import { fetchCurrencies, fetchExchangeRates } from '../actions';
 import '../styles/formsExpenses.css';
 
 function FormsExpenses({ dispatch, currencies }) {
+  const alimentacao = 'Alimentação';
   const count = {
     id: 0,
   };
@@ -14,8 +15,8 @@ function FormsExpenses({ dispatch, currencies }) {
     value: 0,
     description: '',
     currency: 'USD',
-    method: 'din',
-    tag: 'alimentacao',
+    method: 'Dinheiro',
+    tag: alimentacao,
   };
 
   const [userWallet, setUserWallet] = useState(stateWallet);
@@ -48,9 +49,9 @@ function FormsExpenses({ dispatch, currencies }) {
       total: 0,
       value: 0,
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: alimentacao,
     });
   };
 
