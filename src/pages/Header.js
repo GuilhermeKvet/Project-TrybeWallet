@@ -26,7 +26,7 @@ function Header({ email, expenses }) {
         <h1 className="titleWallet">WALLET</h1>
         <h3 data-testid="email-field">{`Email: ${email}`}</h3>
         <h3 data-testid="total-field">{ sumValues() }</h3>
-        <h3 data-testid="header-currency-field">{}</h3>
+        <h3 data-testid="header-currency-field">BRL</h3>
       </header>
     </div>
   );
