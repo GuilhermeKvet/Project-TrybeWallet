@@ -3,6 +3,7 @@ import {
   ADD_CURRENCIES,
   ADD_EXPENSES,
   ADD_EXCHANGERATES,
+  DELETE_EXPENSES,
   // ADD_WALLET,
   // EDIT_WALLET,
 } from '../actions';
@@ -32,6 +33,11 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       exchangeRates: action.rates,
+    };
+  case DELETE_EXPENSES:
+    return {
+      ...state,
+      expenses: state.expenses.filter((expense) => expense !== action.deleteExpense),
     };
   default:
     return state;

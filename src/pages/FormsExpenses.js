@@ -12,7 +12,7 @@ function FormsExpenses({ dispatch, currencies }) {
 
   const stateWallet = {
     total: 0,
-    value: 0,
+    value: '',
     description: '',
     currency: 'USD',
     method: 'Dinheiro',
@@ -47,7 +47,7 @@ function FormsExpenses({ dispatch, currencies }) {
     dispatch(fetchExchangeRates(userExpense));
     setUserWallet({
       total: 0,
-      value: 0,
+      value: '',
       description: '',
       currency: 'USD',
       method: 'Dinheiro',

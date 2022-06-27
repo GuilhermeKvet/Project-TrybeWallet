@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../styles/tableExpenses.css';
+import { deleteExpenses } from '../actions';
 
-function TableExpenses({ expenses }) {
+function TableExpenses({ dispatch, expenses }) {
+  const handleDeleteButton = ({ target }) => {
+    const { value } = target;
+    const deletedExpense = expenses.find((expense) => expense.id === Number(value));
+    console.log(deletedExpense);
+    dispatch(deleteExpenses(deletedExpense));
+  };
+
   const createExpense = () => {
     const newExpense = expenses.map((expense) => {
       const exchanges = Object.values(expense.exchangeRates);
@@ -34,7 +42,9 @@ function TableExpenses({ expenses }) {
               <button
                 type="button"
                 className="buttonDel"
-                // onClick={  }
+                data-testid="delete-btn"
+                value={ expense.id }
+                onClick={ handleDeleteButton }
               >
                 Excluir
               </button>
@@ -75,6 +85,7 @@ const mapStateToProps = (state) => ({
 
 TableExpenses.propTypes = {
   expenses: PropTypes.arrayOf.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(TableExpenses);
