@@ -1,7 +1,38 @@
+.titleWallet {
+  width: 50%;
+}
+
 .headerWallet {
   color: white;
+  display: flex;
+  justify-content: space-around;
 }
 
 .formWallet {
+  align-items: center;
   color: white;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
+
+.buttonWallet {
+  background-color: dodgerblue;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 15px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: deepskyblue;
+}
+
+.label {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+

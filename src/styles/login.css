@@ -16,14 +16,21 @@ body {
   transform: translate(-50%, -50%);
 }
 
-input {
+.inputEmail {
   border: none;
   font-size: 15px;
   outline: none;
   padding: 15px;
 }
 
-button {
+.inputPassword {
+  border: none;
+  font-size: 15px;
+  outline: none;
+  padding: 15px;
+}
+
+.buttonLogin {
   background-color: dodgerblue;
   border: none;
   border-radius: 15px;

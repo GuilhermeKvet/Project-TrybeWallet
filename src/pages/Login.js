@@ -41,6 +41,7 @@ function Login({ dispatch, history }) {
         <br />
         <label htmlFor="inputEmail">
           <input
+            className="inputEmail"
             type="email"
             id="inputEmail"
             placeholder="Email"
@@ -53,6 +54,7 @@ function Login({ dispatch, history }) {
         <br />
         <label htmlFor="inputPassword">
           <input
+            className="inputPassword"
             type="password"
             id="inputPassword"
             placeholder="Senha"
@@ -64,6 +66,7 @@ function Login({ dispatch, history }) {
         </label>
         <br />
         <button
+          className="buttonLogin"
           type="button"
           disabled={ loginForm.isValid }
           onClick={ () => dispatch(addEmail(loginForm.email))
