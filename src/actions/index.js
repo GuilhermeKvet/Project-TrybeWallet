@@ -1,20 +1,15 @@
 // Coloque aqui suas actions
 export const ADD_EMAIL = 'ADD_EMAIL';
-export const ADD_WALLET = 'ADD_WALLET';
-export const EDIT_WALLET = 'EDIT_WALLET';
 export const ADD_CURRENCIES = 'ADD_CURRENCIES';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
 export const ADD_EXCHANGERATES = 'ADD_EXCHANGERATES';
 export const DELETE_EXPENSES = 'DELETE_EXPENSES';
+export const EDIT_EXPENSES = 'EDIT_EXPENSES';
+export const EDITED_EXPENSES = 'EDITED_EXPENSES';
 
 export const addEmail = (email) => ({
   type: ADD_EMAIL,
   email,
-});
-
-export const addWallet = (wallet) => ({
-  type: ADD_WALLET,
-  wallet,
 });
 
 export const addExpenses = (expense) => ({
@@ -27,9 +22,14 @@ export const deleteExpenses = (deleteExpense) => ({
   deleteExpense,
 });
 
-export const editWallet = (walletSelect) => ({
-  type: EDIT_WALLET,
-  walletSelect,
+export const editExpenses = (id) => ({
+  type: EDIT_EXPENSES,
+  id,
+});
+
+export const editedExpenses = (expenseEdited) => ({
+  type: EDITED_EXPENSES,
+  expenseEdited,
 });
 
 export const receiveCurrencies = (currencies) => ({
@@ -46,7 +46,10 @@ export function fetchCurrencies() {
   return (dispatch) => {
     fetch('https://economia.awesomeapi.com.br/json/all')
       .then((response) => response.json())
-      .then((currencies) => dispatch(receiveCurrencies(currencies)));
+      .then((currencies) => {
+        dispatch(receiveCurrencies(currencies));
+        dispatch(receiveExchangeRates(currencies));
+      });
   };
 }
 

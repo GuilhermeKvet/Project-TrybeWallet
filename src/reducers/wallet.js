@@ -4,16 +4,16 @@ import {
   ADD_EXPENSES,
   ADD_EXCHANGERATES,
   DELETE_EXPENSES,
-  // ADD_WALLET,
-  // EDIT_WALLET,
+  EDIT_EXPENSES,
+  EDITED_EXPENSES,
 } from '../actions';
 
 const INITIAL_STATE = {
-  currencies: [], // array de string
-  expenses: [], // array de objetos, com cada objeto tendo as chaves id, value, currency, method, tag, description e exchangeRates
-  editor: false, // valor booleano que indica de uma despesa está sendo editada
+  currencies: [],
+  expenses: [],
+  editor: false,
   idToEdit: 0,
-  exchangeRates: {}, // valor numérico que armazena o id da despesa que esta sendo editada
+  exchangeRates: {},
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -38,6 +38,19 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: state.expenses.filter((expense) => expense !== action.deleteExpense),
+    };
+  case EDIT_EXPENSES:
+    return {
+      ...state,
+      editor: true,
+      idToEdit: action.id,
+    };
+  case EDITED_EXPENSES:
+    return {
+      ...state,
+      expenses: action.expenseEdited,
+      idToEdit: 0,
+      editor: false,
     };
   default:
     return state;

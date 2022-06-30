@@ -2,32 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../styles/tableExpenses.css';
-import { deleteExpenses } from '../actions';
+import { deleteExpenses, editExpenses } from '../actions';
 
 function TableExpenses({ dispatch, expenses }) {
   const handleDeleteButton = ({ target }) => {
     const { value } = target;
     const deletedExpense = expenses.find((expense) => expense.id === Number(value));
-    console.log(deletedExpense);
     dispatch(deleteExpenses(deletedExpense));
+  };
+
+  const handleEditButton = ({ target }) => {
+    const { value } = target;
+    dispatch(editExpenses(value));
   };
 
   const createExpense = () => {
     const newExpense = expenses.map((expense) => {
-      const exchanges = Object.values(expense.exchangeRates);
-      const userCurrencys = exchanges.filter((exchange) => (
-        exchange.code === expense.currency
-      ));
-      const exchangeUsed = Number(userCurrencys[0].ask);
+      const userCurreny = expense.exchangeRates[expense.currency];
+      const exchangeUsed = Number(userCurreny.ask);
       const convertedValue = Number(exchangeUsed * expense.value);
       const createTrExpense = (
-        <tbody className="table-group-divider">
+        <tbody key={ expense.id } className="table-group-divider">
           <tr key={ expense.id }>
             <td className="titleExpense">{ expense.description }</td>
             <td>{ expense.tag }</td>
             <td>{ expense.method }</td>
             <td>{ Number(expense.value).toFixed(2) }</td>
-            <td>{ userCurrencys[0].name }</td>
+            <td>{ userCurreny.name.split('/')[0] }</td>
             <td>{ exchangeUsed.toFixed(2) }</td>
             <td>{ convertedValue.toFixed(2) }</td>
             <td>Real</td>
@@ -35,7 +36,9 @@ function TableExpenses({ dispatch, expenses }) {
               <button
                 type="button"
                 className="buttonEdit"
-                // onClick={ }
+                data-testid="edit-btn"
+                value={ expense.id }
+                onClick={ handleEditButton }
               >
                 Editar
               </button>
@@ -81,11 +84,13 @@ function TableExpenses({ dispatch, expenses }) {
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
+  // exchangeRates: state.wallet.exchangeRates,
 });
 
 TableExpenses.propTypes = {
   expenses: PropTypes.arrayOf.isRequired,
   dispatch: PropTypes.func.isRequired,
+  // exchangeRates: PropTypes.arrayOf.isRequired,
 };
 
 export default connect(mapStateToProps)(TableExpenses);
