@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../actions';
+import Finance from '../Finance.png';
 import '../styles/login.css';
 
 function Login({ dispatch, history }) {
@@ -35,46 +36,57 @@ function Login({ dispatch, history }) {
   };
 
   return (
-    <div>
-      <form className="formLogin">
-        <h1>Login</h1>
-        <br />
-        <label htmlFor="inputEmail">
-          <input
-            className="inputEmail"
-            type="email"
-            id="inputEmail"
-            placeholder="Email"
-            data-testid="email-input"
-            name="email"
-            value={ loginForm.email }
-            onChange={ handleChange }
-          />
-        </label>
-        <br />
-        <label htmlFor="inputPassword">
-          <input
-            className="inputPassword"
-            type="password"
-            id="inputPassword"
-            placeholder="Senha"
-            data-testid="password-input"
-            name="password"
-            value={ loginForm.password }
-            onChange={ handleChange }
-          />
-        </label>
-        <br />
-        <button
-          className="buttonLogin"
-          type="button"
-          disabled={ loginForm.isValid }
-          onClick={ () => dispatch(addEmail(loginForm.email))
-            && history.push('/carteira') }
-        >
-          Entrar
-        </button>
-      </form>
+    <div className="loginPage">
+      <h1 className="loginTitle">
+        WALLET
+      </h1>
+      <div className="loginItens">
+        <img
+          className="imageWallet"
+          src={ Finance }
+          alt="Duas pessoas controlando despesas"
+          width="700px"
+        />
+        <form className="formLogin">
+          <h1>Login</h1>
+          <br />
+          <label htmlFor="inputEmail">
+            <input
+              className="inputEmail"
+              type="email"
+              id="inputEmail"
+              placeholder="Email"
+              data-testid="email-input"
+              name="email"
+              value={ loginForm.email }
+              onChange={ handleChange }
+            />
+          </label>
+          <br />
+          <label htmlFor="inputPassword">
+            <input
+              className="inputPassword"
+              type="password"
+              id="inputPassword"
+              placeholder="Senha"
+              data-testid="password-input"
+              name="password"
+              value={ loginForm.password }
+              onChange={ handleChange }
+            />
+          </label>
+          <br />
+          <button
+            className="buttonLogin"
+            type="button"
+            disabled={ loginForm.isValid }
+            onClick={ () => dispatch(addEmail(loginForm.email))
+              && history.push('/carteira') }
+          >
+            Entrar
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -3,17 +3,48 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.loginPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loginTitle {
+  color: #fff;
+  font-size: 70px;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-left: 35px;
+  margin-top: 20px;
+  min-width: 90vw;
+  padding: 10px;
+}
+
+.loginItens {
+  background-color: #b1b1b1;
+  border-radius: 10px;
+  display: flex;
+  height: 600px;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.imageWallet {
+  z-index: 2;
+}
+
 .formLogin {
   align-items: center;
   background-color: rgb(251, 251, 251, 0.9);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  left: 50%;
+  /* left: 50%; */
+  /* position: absolute; */
   padding: 80px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 1;
+  /* top: 50%; */
+  /* transform: translate(-50%, -50%); */
 }
 
 .inputEmail {
@@ -21,6 +52,7 @@ body {
   font-size: 15px;
   outline: none;
   padding: 15px;
+  width: 200px;
 }
 
 .inputPassword {
@@ -28,6 +60,7 @@ body {
   font-size: 15px;
   outline: none;
   padding: 15px;
+  width: 200px;
 }
 
 .buttonLogin {
