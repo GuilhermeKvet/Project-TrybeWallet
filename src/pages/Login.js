@@ -84,4 +84,4 @@ Login.propTypes = {
   history: PropTypes.objectOf.isRequired,
 };
 
-export default connect(null, null)(Login);
+export default connect()(Login);

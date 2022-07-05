@@ -186,7 +186,6 @@ function FormsExpenses({
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
-  // exchangeRates: state.wallet.exchangeRates,
   expenses: state.wallet.expenses,
   editor: state.wallet.editor,
   idToEdit: state.wallet.idToEdit,
@@ -195,7 +194,6 @@ const mapStateToProps = (state) => ({
 FormsExpenses.propTypes = {
   dispatch: PropTypes.func.isRequired,
   currencies: PropTypes.objectOf.isRequired,
-  // exchangeRates: PropTypes.arrayOf.isRequired,
   expenses: PropTypes.arrayOf.isRequired,
   editor: PropTypes.bool.isRequired,
   idToEdit: PropTypes.number.isRequired,

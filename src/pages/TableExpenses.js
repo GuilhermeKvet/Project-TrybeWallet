@@ -84,13 +84,11 @@ function TableExpenses({ dispatch, expenses }) {
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
-  // exchangeRates: state.wallet.exchangeRates,
 });
 
 TableExpenses.propTypes = {
   expenses: PropTypes.arrayOf.isRequired,
   dispatch: PropTypes.func.isRequired,
-  // exchangeRates: PropTypes.arrayOf.isRequired,
 };
 
 export default connect(mapStateToProps)(TableExpenses);
