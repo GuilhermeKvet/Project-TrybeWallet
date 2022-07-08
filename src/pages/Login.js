@@ -45,7 +45,7 @@ function Login({ dispatch, history }) {
           className="imageWallet"
           src={ Finance }
           alt="Duas pessoas controlando despesas"
-          width="700px"
+          width="650px"
         />
         <form className="formLogin">
           <h1>Login</h1>
